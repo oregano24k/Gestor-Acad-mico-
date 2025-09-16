@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor Académico Universitario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://esm.run/@google/genai",
+    "jspdf": "https://esm.run/jspdf",
+    "html2canvas": "https://esm.run/html2canvas",
+    "pdfjs-dist": "https://esm.run/pdfjs-dist",
+    "pdfjs-dist/": "https://aistudiocdn.com/pdfjs-dist@^5.4.149/"
+  }
+}
+</script>
+<style>
+    .print-header {
+        display: none;
+    }
+
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+        .printable-area, .printable-area * {
+            visibility: visible;
+        }
+        .printable-area {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+        .print-header {
+            display: block;
+            padding-bottom: 1rem;
+        }
+        .print-header h1 {
+            font-size: 1.5rem; /* 24px */
+            font-weight: bold;
+            color: black;
+        }
+        .print-header p {
+            font-size: 1.125rem; /* 18px */
+            color: #374151; /* gray-700 */
+        }
+        .printable-area table {
+            min-width: 100% !important; /* Override inline style from tailwind */
+            font-size: 9pt;
+            border-collapse: collapse;
+        }
+        .printable-area th, .printable-area td {
+            border: 1px solid #e5e7eb !important; /* gray-200 */
+            padding: 4px;
+            color: black !important;
+            background-color: white !important;
+        }
+        .printable-area th {
+            background-color: #f9fafb !important; /* gray-50 */
+        }
+        /* Make class cells have a light background and a colored left border */
+        .printable-area .class-cell {
+             -webkit-print-color-adjust: exact;
+             print-color-adjust: exact;
+             background-color: #f9fafb !important; /* gray-50 */
+        }
+        .printable-area .class-cell-blue { border-left-color: #3b82f6 !important; }
+        .printable-area .class-cell-green { border-left-color: #22c55e !important; }
+        .printable-area .class-cell-yellow { border-left-color: #eab308 !important; }
+        .printable-area .class-cell-purple { border-left-color: #8b5cf6 !important; }
+        .printable-area .class-cell-pink { border-left-color: #ec4899 !important; }
+        .printable-area .class-cell-indigo { border-left-color: #6366f1 !important; }
+        .printable-area .class-cell-teal { border-left-color: #14b8a6 !important; }
+        
+        .printable-area .sticky {
+            position: static; /* Unstick headers for printing */
+        }
+    }
+</style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

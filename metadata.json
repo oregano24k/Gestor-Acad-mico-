@@ -1,0 +1,7 @@
+{
+  "name": "Gestor Académico Universitario",
+  "description": "Una aplicación web para ayudar a los estudiantes universitarios a realizar un seguimiento de sus asignaturas, calificaciones y promedio general (GPA). Permite gestionar múltiples perfiles de estudiantes.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
